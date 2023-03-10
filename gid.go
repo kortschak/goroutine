@@ -20,6 +20,7 @@ func ID() int64 {
 	return *(*int64)(add(getg(), goidoff))
 }
 
+//go:nosplit
 func getg() unsafe.Pointer {
 	return *(*unsafe.Pointer)(add(getm(), curgoff))
 }
@@ -29,6 +30,7 @@ func getg() unsafe.Pointer {
 func add(p unsafe.Pointer, x uintptr) unsafe.Pointer
 
 //go:linkname getm runtime.getm
+//go:nosplit
 func getm() unsafe.Pointer
 
 var (
