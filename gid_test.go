@@ -20,7 +20,7 @@ func TestID(t *testing.T) {
 		t.Fatalf("unexpected id for main goroutine: got:%d want:%d", got, want)
 	}
 	var wg sync.WaitGroup
-	for i := 0; i < 100000; i++ {
+	for i := 0; i < 1000000; i++ {
 		i := i
 		wg.Add(1)
 		go func() {
