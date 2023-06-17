@@ -19,6 +19,7 @@ jobs:
           - 1.18.x
           - 1.19.x
           - 1.20.x
+          - 1.21.x
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -45,6 +46,7 @@ jobs:
           - 1.18.x
           - 1.19.x
           - 1.20.x
+          - 1.21.x
     runs-on: ${{ matrix.os }}
 
     steps:
