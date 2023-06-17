@@ -1,7 +1,7 @@
 # goroutine identification
 
-Package goroutine provides a single function that will return the runtime's
-ID number for the calling goroutine.
+Package goroutine provides functions that will return the runtime's
+ID number for the calling goroutine or its creator.
 
 The implementation is derived from Laevus Dexter's comment in Gophers' Slack
 #darkarts, https://gophers.slack.com/archives/C1C1YSQBT/p1593885226448300
