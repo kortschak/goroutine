@@ -7,8 +7,6 @@
 
 package goroutine
 
-import "unsafe"
-
 // ParentID returns the runtime ID of goroutine that created the calling
 // goroutine.
 func ParentID() int64 {
@@ -16,21 +14,3 @@ func ParentID() int64 {
 }
 
 var parentGoidoff = offset("*runtime.g", "parentGoid")
-
-// Link is a goroutine parent-child relationship.
-type Link struct {
-	Parent, Child int64
-}
-
-// All returns all the known goroutine parent-child relationships.
-func All() []Link {
-	var s []Link
-	forEachG(func(g unsafe.Pointer) {
-		s = append(s, Link{Parent: idOf(g, parentGoidoff), Child: idOf(g, goidoff)})
-	})
-	return s
-}
-
-//go:linkname forEachG runtime.forEachG
-//go:nosplit
-func forEachG(fn func(gp unsafe.Pointer))
